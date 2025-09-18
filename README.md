@@ -21,4 +21,8 @@
 
    ```
    python inference.py --path_to_model_w yolo_s_v11_dropout_05_best.pt --from_cam --show_video
-   ```  
+   ```
+
+5. Для завершения работы необходимо нажать кнопку "q"
+
+Для того, чтобы запустить программный модуль с использование [conda](https://www.anaconda.com/download/) необходимо воспользоваться скриптом [setup.sh](!setup.sh)
