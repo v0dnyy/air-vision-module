@@ -18,6 +18,7 @@
 2. Склонируйте данный репозиторий
 3. Установите требуемые библиотеки через команду, запущенную из директории с репозиторием: ``pip install -r requirements.txt``.
 4. Запустить ПО с помощью командной строки, указав необходимые арументы для запуска. Пример:
+
    ```
-   python main.py --data_type --data test_data --roi "0,0,150,150" --output_path runs/run1.json --weights_path weights/yolov10s.pt  --visualization
+   python inference.py --path_to_model_w yolo_s_v11_dropout_05_best.pt --from_cam --show_video
    ```  
