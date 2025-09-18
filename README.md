@@ -1,4 +1,4 @@
-<img width="484" height="28" alt="image" src="https://github.com/user-attachments/assets/058eea29-3f8e-4ed8-a5c5-a478b74ca42d" /># CV-UAV-module
+# CV-UAV-module
 
 ## Краткое описание
 
