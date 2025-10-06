@@ -7,7 +7,6 @@ SCRIPT_TO_RUN="inference.py"
 SCRIPT_ARGS=(
     --path_to_model_w "yolo_n_v11_dropout_best.pt"
     --from_cam
-    --show_video
     --save_video
     --save_logs
 )
@@ -54,6 +53,10 @@ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/arm64/c
 sudo dpkg -i cuda-keyring_1.1-1_all.deb
 sudo apt-get update
 sudo apt-get -y install libcusparselt0 libcusparselt-dev
+
+pip install https://github.com/ultralytics/assets/releases/download/v0.0.0/onnxruntime_gpu-1.20.0-cp310-cp310-linux_aarch64.whl
+pip install onnx==1.15.0
+pip install numpy==1.23.5
 
 echo "Запускаем скрипт $SCRIPT_TO_RUN..."
 
