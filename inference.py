@@ -4,6 +4,7 @@ import random
 import os
 import json
 import argparse
+import datetime
 
 
 def parse_args():
@@ -110,7 +111,10 @@ def process_video_with_detect(path_to_model_w, input_video_path, from_cam=False,
 
     # Define the output video writer
     if save_video:
+        day = datetime.now().day
+        filename, ext = os.path.splitext(output_video_path)
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        output_video_path = f"./processed_video/{filename}_{day}{ext}"
         out = cv2.VideoWriter(output_video_path, fourcc, fps, (frame_width, frame_height))
 
     while True:
