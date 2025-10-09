@@ -122,7 +122,7 @@ def process_video_with_detect(path_to_model_w, input_video_path, from_cam=False,
         ret, frame = cap.read()
         if not ret:
             break
-        results = model.predict(frame, iou=0.4, conf=0.6, imgsz=640, verbose=False)
+        results = model.predict(frame, iou=0.65, conf=0.570, imgsz=640, verbose=False, ) #half=True
 
         if results and results[0].boxes:
             # Проверяем, есть ли обнаруженные объекты
