@@ -2,27 +2,7 @@
 
 set -e
 
-REPO_URL="https://github.com/v0dnyy/air-vision-module.git"
-SCRIPT_TO_RUN="inference.py"
-SCRIPT_ARGS=(
-    --path_to_model_w "yolo_n_v11_dropout_best.pt"
-    --from_cam
-    --save_video
-    --save_logs
-)
-
-echo "--- Начало установки и запуска ---"
-
-if [ -d "air-vision-module" ]; then
-    echo "Директория 'air-vision-module' уже существует, обновляю содержимое..."
-    cd "air-vision-module"
-    git pull origin main
-else
-    echo "Клонируем репозиторий из $REPO_URL"
-    git clone "$REPO_URL"
-    cd "air-vision-module"
-fi
-
+echo "--- Начало установки зависимостей ---"
 echo "Создание нового виртуального окружения air-vision-module..."
 if [ -d "air-vision-module" ]; then
     echo "Виртуальное окружение 'air-vision-module' уже существует, удаляю..."
@@ -57,11 +37,3 @@ sudo apt-get -y install libcusparselt0 libcusparselt-dev
 pip install https://github.com/ultralytics/assets/releases/download/v0.0.0/onnxruntime_gpu-1.20.0-cp310-cp310-linux_aarch64.whl
 pip install onnx==1.15.0
 pip install numpy==1.23.5
-
-echo "Запускаем скрипт $SCRIPT_TO_RUN..."
-
-python "$SCRIPT_TO_RUN" "${SCRIPT_ARGS[@]}"
-
-echo "=== Скрипт завершил работу ==="
-deactivate
-
