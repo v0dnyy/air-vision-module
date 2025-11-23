@@ -14,7 +14,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='UAV YOLO model inference')
     parser.add_argument('--path_to_model_w', type=str, required=True, help='model weight path')
     parser.add_argument('--from_cam', action='store_true', help='capture stream from camera')
-    parser.add_argument('--cam_num', type=str, default='0', help='camera device number')
+    parser.add_argument('--cam_num', type=int, default=0, help='camera device number')
     parser.add_argument('--input_video_path', type=str, default=None, help='path to input video')
     parser.add_argument('--show_video', action='store_true', help='Show processing video')
     parser.add_argument('--save_video', action='store_true', help='save processed video')
