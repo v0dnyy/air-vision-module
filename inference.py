@@ -14,7 +14,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='UAV YOLO model inference')
     parser.add_argument('--path_to_model_w', type=str, required=True, help='model weight path')
     parser.add_argument('--from_cam', action='store_true', help='capture stream from camera')
-    parser.add_argument('--cam_num', type=int, default=0, help='camera device number')
+    parser.add_argument('--camera_id', type=int, default=0, help='camera device number')
     parser.add_argument('--input_video_path', type=str, default=None, help='path to input video')
     parser.add_argument('--show_video', action='store_true', help='Show processing video')
     parser.add_argument('--save_video', action='store_true', help='save processed video')
@@ -94,9 +94,9 @@ def model_validation(path_to_model_w, path_to_data):
     print(metrics.box.map, metrics.box.map50, metrics.box.map75, metrics.box.maps)
 
 
-def process_video_with_detect(path_to_model_w, input_video_path, from_cam=False, cam_num=0, show_video=False,
-                              save_video=False,
-                              save_logs=False, output_video_path="output_video.mp4", mav_port='COM11'):
+def process_video_with_detect(path_to_model_w, input_video_path, from_cam=False, camera_id=0, show_video=False,
+                              save_video=False, save_logs=False, output_video_path="output_video.mp4",
+                              mav_port='COM11'):
     model = YOLO(path_to_model_w)
     model.fuse()
 
@@ -106,7 +106,7 @@ def process_video_with_detect(path_to_model_w, input_video_path, from_cam=False,
 
     # Open the input video file
     if from_cam:
-        cap = cv2.VideoCapture(cam_num)
+        cap = cv2.VideoCapture(camera_id)
     else:
         cap = cv2.VideoCapture(input_video_path)
 
@@ -176,7 +176,7 @@ def main():
     if args.input_dir:
         detect_dir_files(args.path_to_model_w, args.input_dir)
     else:
-        process_video_with_detect(args.path_to_model_w, args.input_video_path, args.from_cam, args.cam_num,
+        process_video_with_detect(args.path_to_model_w, args.input_video_path, args.from_cam, args.camera_id,
                                   args.show_video, args.save_video, args.save_logs, args.output_video_path,
                                   args.mav_port)
 
