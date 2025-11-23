@@ -3,15 +3,15 @@
 set -e
 
 echo "--- Начало установки зависимостей ---"
-echo "Создание нового виртуального окружения air-vision-module..."
-if [ -d "air-vision-module" ]; then
-    echo "Виртуальное окружение 'air-vision-module' уже существует, удаляю..."
-    rm -rf air-vision-module
+echo "Создание нового виртуального окружения air-vision-module-venv..."
+if [ -d "air-vision-module-venv" ]; then
+    echo "Виртуальное окружение 'air-vision-module-venv' уже существует, удаляю..."
+    rm -rf air-vision-module-venv
 fi
 
-python3 -m venv air-vision-module
-echo "Активация виртуального окружения air-vision-module..."
-source air-vision-module/bin/activate
+python3 -m venv air-vision-module-venv
+echo "Активация виртуального окружения air-vision-module-venv..."
+source air-vision-module-venv/bin/activate
 
 echo "Устанавливаем зависимости из requirements.txt..."
 if [ -f "requirements.txt" ]; then
