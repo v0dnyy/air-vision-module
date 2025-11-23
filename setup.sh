@@ -2,7 +2,7 @@
 
 set -e
 
-REPO_URL="https://github.com/v0dnyy/III.git"
+REPO_URL="https://github.com/v0dnyy/air-vision-module.git"
 SCRIPT_TO_RUN="inference.py"
 SCRIPT_ARGS=(
     --path_to_model_w "yolo_n_v11_dropout_best.pt"
@@ -13,26 +13,26 @@ SCRIPT_ARGS=(
 
 echo "--- Начало установки и запуска ---"
 
-if [ -d "III" ]; then
-    echo "Директория 'III' уже существует, обновляю содержимое..."
-    cd "III"
+if [ -d "air-vision-module" ]; then
+    echo "Директория 'air-vision-module' уже существует, обновляю содержимое..."
+    cd "air-vision-module"
     git pull origin main
 else
     echo "Клонируем репозиторий из $REPO_URL"
     git clone "$REPO_URL"
-    cd "III"
+    cd "air-vision-module"
 fi
 
 echo "Создание нового Conda окружения..."
 # Удаляем существующее окружение, если оно есть
-conda env remove -n III_cv_module 2>/dev/null || true
+conda env remove -n air-vision-module 2>/dev/null || true
 
 # Создаем новое Conda окружение с Python 3.10
-conda create -n III_cv_module python=3.10 -y
+conda create -n air-vision-module python=3.10 -y
 
 # Активируем Conda окружение
 source $(conda info --base)/etc/profile.d/conda.sh
-conda activate III_cv_module
+conda activate air-vision-module
 
 echo "Устанавливаем зависимости из requirements.txt..."
 if [ -f "requirements.txt" ]; then
