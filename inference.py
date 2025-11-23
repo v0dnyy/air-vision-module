@@ -165,6 +165,7 @@ def process_video_with_detect(path_to_model_w, input_video_path, from_cam=False,
     if save_video:
         out.release()
 
+    mav.close()
     cv2.destroyAllWindows()
 
 
