@@ -143,7 +143,7 @@ def process_video_with_detect(path_to_model_w, input_video_path, from_cam=False,
                 json.dump(result_json, file, ensure_ascii=False, indent=4)
 
         if show_video:
-            frame = cv2.resize(frame, (0, 0), fx=0.6, fy=0.6)
+            frame = cv2.resize(frame, (0, 0), fx=0.8, fy=0.8)
             cv2.imshow("frame", frame)
 
         if cv2.waitKey(1) & 0xFF == ord("q"):
