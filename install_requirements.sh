@@ -9,7 +9,7 @@ if [ -d "air-vision-module-venv" ]; then
     rm -rf air-vision-module-venv
 fi
 
-python3 -m venv air-vision-module-venv
+python3 -m venv \air-vision-module-venv
 echo "Активация виртуального окружения air-vision-module-venv..."
 source air-vision-module-venv/bin/activate
 

@@ -7,6 +7,7 @@ SCRIPT_TO_RUN="inference.py"
 SCRIPT_ARGS=(
     --path_to_model_w "yolo_n_v11_dropout_best.pt"
     --from_cam
+    --cam_num 0
     --save_video
     --save_logs
 )
